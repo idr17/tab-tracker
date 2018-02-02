@@ -8,10 +8,13 @@ app.use(bodyParser.json())
   .use(morgan('combined'))
   .use(cors())
 
-app.get('/status', (req, res) => {
+app.post('/register', (req, res) => {
   res.send({
-    message: 'Hello Worlds'
+    message: `Hello ${req.body.email}!, Your user was registered! Have fun!`
   })
 })
 
-app.listen(process.env.PORT || 8081)
+const PORT = 8081
+console.log(`app listen at localhost:${PORT}`)
+
+app.listen(process.env.PORT || PORT)
